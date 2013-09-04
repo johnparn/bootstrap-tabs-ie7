@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv" class="ng-app:App" id="ng-app" ng-app="App" xmlns:ng="http://angularjs.org" ng-controller="MainCtrl">
+    <head>
+        <meta charset="utf-8">
+        <title>Tab test for IE7</title>
+        <!-- Styles -->
+        <!--[if lte IE 8]>
+        <script>
+            // Register tags to make IE7/8 happy
+            document.createElement('ng-include');
+            document.createElement('ng-pluralize');
+            document.createElement('ng-view');
+            document.createElement('ui-view');
+            document.createElement('ng-class');
+            document.createElement('ng-scope');
+            document.createElement('ng-repeat');
+            document.createElement('ng-switch');
+            document.createElement('ng-switch-when');            
+            document.createElement('alert');
+            document.createElement('piechart');
+            // Tabs - necessary?
+            document.createElement('tabset');
+            document.createElement('tab');
+            document.createElement('tabset-titles');
+            document.createElement('tab-pane');
+            document.createElement('tab-heading');
+            document.createElement('tab-heading-transclude');
+            document.createElement('tab-content-transclude');        
+        </script>
+        <![endif]-->
+        <link href="bootstrap.min.css" rel="stylesheet">    
+    </head>
+    <body>
+    	<h1>Tabset 1</h1>
+        <div tabset>
+            <div tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+                <ng-include="tab.template"></ng-include>
+            </div>
+        </div>
+        
+        <h1>Tabset 2</h1>
+        <tabset>
+            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+                <div ng-include="tab.template"></div>
+            </tab>
+        </tabset>
+    	
+    	<script src="ie-shiv.js"></script>
+	    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+	    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.5.0.js"></script>
+	    <script src="app.js"></script>
+	    
+    	<!--	
+		< script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+		< script src="ie-shiv.js"></script>
+		< script src="ui-bootstrap-tpls.js"></script>
+		< script src="ui-bootstrap.js"></script>
+		< script src="app.js"></script -->
+		
+    </body>
+    </html>
