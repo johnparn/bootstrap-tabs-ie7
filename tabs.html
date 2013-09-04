@@ -34,28 +34,23 @@
     	<h1>Tabset 1</h1>
         <div tabset>
             <div tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
-                <ng-include="tab.template"></ng-include>
+            	<div>Template:{{tab.template}}</div>
+                <div ng-include="tab.template"></div>
             </div>
         </div>
         
         <h1>Tabset 2</h1>
         <tabset>
             <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
-                <div ng-include="tab.template"></div>
+            	<div>Template:{{tab.template}}</div>
+                <ng-include src="tab.template"></ng-include>
             </tab>
         </tabset>
     	
-    	<script src="ie-shiv.js"></script>
-	    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
-	    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.5.0.js"></script>
-	    <script src="app.js"></script>
-	    
-    	<!--	
-		< script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-		< script src="ie-shiv.js"></script>
-		< script src="ui-bootstrap-tpls.js"></script>
-		< script src="ui-bootstrap.js"></script>
-		< script src="app.js"></script -->
+    	<script src="js/ie-shiv.js"></script>
+	    <script src="js/angular-1.0.7.js"></script>
+	    <script src="js/ui-bootstrap-tpls-0.5.0.js"></script>
+	    <script src="js/app.js"></script>
 		
     </body>
     </html>
