@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sv" class="ng-app:App" id="ng-app" ng-app="App" xmlns:ng="http://angularjs.org" ng-controller="MainCtrl">
+<html lang="sv" class="ng-app:App" id="ng-app" ng-app="App" xmlns:ng="http://angularjs.org">
     <head>
         <meta charset="utf-8">
         <title>Tab test for IE7</title>
@@ -7,36 +7,20 @@
         <!--[if lte IE 8]>
         <script>
             // Register tags to make IE7/8 happy
-            document.createElement('ng-include');
-            document.createElement('ng-pluralize');
-            document.createElement('ng-view');
-            document.createElement('ui-view');
-            document.createElement('ng-class');
-            document.createElement('ng-scope');
-            document.createElement('ng-repeat');
-            document.createElement('ng-switch');
-            document.createElement('ng-switch-when');            
-            document.createElement('alert');
-            document.createElement('piechart');
             // Tabs - necessary?
             document.createElement('tabset');
-            document.createElement('tab');
-            document.createElement('tabset-titles');
-            document.createElement('tab-pane');
-            document.createElement('tab-heading');
-            document.createElement('tab-heading-transclude');
-            document.createElement('tab-content-transclude');        
+            document.createElement('tab');        
         </script>
         <![endif]-->
         <link href="bootstrap.min.css" rel="stylesheet">    
     </head>
-    <body>
+    <body ng-controller="MainCtrl">
     	<h1>Tabset 1</h1>
         <div tabset>
-            <div tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
             	<div>Template:{{tab.template}}</div>
                 <div ng-include="tab.template"></div>
-            </div>
+            </tab>
         </div>
         
         <h1>Tabset 2</h1>
