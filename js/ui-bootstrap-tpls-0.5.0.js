@@ -304,7 +304,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
 // Use in the accordion-group template to indicate where you want the heading to be transcluded
 // You must provide the property on the accordion-group controller that will hold the transcluded element
 // <div class="accordion-group">
-//   <div class="accordion-heading" ><a ... accordion-transclude="heading">...</a></div>
+//   <div class="accordion-heading" ><a href="javascript:void(0);" ... accordion-transclude="heading">...</a></div>
 //   ...
 // </div>
 .directive('accordionTransclude', function() {
@@ -657,7 +657,7 @@ angular.module('ui.bootstrap.carousel', ['ui.bootstrap.transition'])
           {{$index}}: {{slide.text}}
         </li>
       </ul>
-      <a class="btn" ng-click="addSlide()">Add Slide</a>
+      <a href="javascript:void(0);" class="btn" ng-click="addSlide()">Add Slide</a>
     </div>
     <div class="span6">
       Interval, in milliseconds: <input type="number" ng-model="myInterval">
@@ -1547,10 +1547,10 @@ dialogModule.provider("$dialog", function(){
  * @restrict class or attribute
  * @example:
    <li class="dropdown">
-     <a class="dropdown-toggle">My Dropdown Menu</a>
+     <a href="javascript:void(0);" class="dropdown-toggle">My Dropdown Menu</a>
      <ul class="dropdown-menu">
        <li ng-repeat="choice in dropChoices">
-         <a ng-href="{{choice.href}}">{{choice.text}}</a>
+         <a href="javascript:void(0);" ng-href="{{choice.href}}">{{choice.text}}</a>
        </li>
      </ul>
    </li>
@@ -1793,8 +1793,8 @@ angular.module('ui.bootstrap.pagination', [])
 }])
 
 .constant('pagerConfig', {
-  previousText: '« Previous',
-  nextText: 'Next »',
+  previousText: 'Â« Previous',
+  nextText: 'Next Â»',
   align: true
 })
 
@@ -3215,7 +3215,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position'])
 angular.module("template/accordion/accordion-group.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/accordion/accordion-group.html",
     "<div class=\"accordion-group\">\n" +
-    "  <div class=\"accordion-heading\" ><a class=\"accordion-toggle\" ng-click=\"isOpen = !isOpen\" accordion-transclude=\"heading\">{{heading}}</a></div>\n" +
+    "  <div class=\"accordion-heading\" ><a href="javascript:void(0);" class=\"accordion-toggle\" ng-click=\"isOpen = !isOpen\" accordion-transclude=\"heading\">{{heading}}</a></div>\n" +
     "  <div class=\"accordion-body\" collapse=\"!isOpen\">\n" +
     "    <div class=\"accordion-inner\" ng-transclude></div>  </div>\n" +
     "</div>");
@@ -3242,8 +3242,8 @@ angular.module("template/carousel/carousel.html", []).run(["$templateCache", fun
     "        <li ng-repeat=\"slide in slides()\" ng-class=\"{active: isActive(slide)}\" ng-click=\"select(slide)\"></li>\n" +
     "    </ol>\n" +
     "    <div class=\"carousel-inner\" ng-transclude></div>\n" +
-    "    <a ng-click=\"prev()\" class=\"carousel-control left\" ng-show=\"slides().length > 1\">&lsaquo;</a>\n" +
-    "    <a ng-click=\"next()\" class=\"carousel-control right\" ng-show=\"slides().length > 1\">&rsaquo;</a>\n" +
+    "    <a href="javascript:void(0);" ng-click=\"prev()\" class=\"carousel-control left\" ng-show=\"slides().length > 1\">&lsaquo;</a>\n" +
+    "    <a href="javascript:void(0);" ng-click=\"next()\" class=\"carousel-control right\" ng-show=\"slides().length > 1\">&rsaquo;</a>\n" +
     "</div>\n" +
     "");
 }]);
@@ -3330,7 +3330,7 @@ angular.module("template/pagination/pager.html", []).run(["$templateCache", func
   $templateCache.put("template/pagination/pager.html",
     "<div class=\"pager\">\n" +
     "  <ul>\n" +
-    "    <li ng-repeat=\"page in pages\" ng-class=\"{disabled: page.disabled, previous: page.previous, next: page.next}\"><a ng-click=\"selectPage(page.number)\">{{page.text}}</a></li>\n" +
+    "    <li ng-repeat=\"page in pages\" ng-class=\"{disabled: page.disabled, previous: page.previous, next: page.next}\"><a href="javascript:void(0);" ng-click=\"selectPage(page.number)\">{{page.text}}</a></li>\n" +
     "  </ul>\n" +
     "</div>\n" +
     "");
@@ -3339,7 +3339,7 @@ angular.module("template/pagination/pager.html", []).run(["$templateCache", func
 angular.module("template/pagination/pagination.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/pagination/pagination.html",
     "<div class=\"pagination\"><ul>\n" +
-    "  <li ng-repeat=\"page in pages\" ng-class=\"{active: page.active, disabled: page.disabled}\"><a ng-click=\"selectPage(page.number)\">{{page.text}}</a></li>\n" +
+    "  <li ng-repeat=\"page in pages\" ng-class=\"{active: page.active, disabled: page.disabled}\"><a href="javascript:void(0);" ng-click=\"selectPage(page.number)\">{{page.text}}</a></li>\n" +
     "  </ul>\n" +
     "</div>\n" +
     "");
@@ -3402,7 +3402,7 @@ angular.module("template/tabs/pane.html", []).run(["$templateCache", function($t
 angular.module("template/tabs/tab.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/tabs/tab.html",
     "<li ng-class=\"{active: active, disabled: disabled}\">\n" +
-    "  <a ng-click=\"select()\" tab-heading-transclude>{{heading}}</a>\n" +
+    "  <a href="javascript:void(0);" ng-click=\"select()\" tab-heading-transclude>{{heading}}</a>\n" +
     "</li>\n" +
     "");
 }]);
@@ -3412,7 +3412,7 @@ angular.module("template/tabs/tabs.html", []).run(["$templateCache", function($t
     "<div class=\"tabbable\">\n" +
     "  <ul class=\"nav nav-tabs\">\n" +
     "    <li ng-repeat=\"pane in panes\" ng-class=\"{active:pane.selected}\">\n" +
-    "      <a ng-click=\"select(pane)\">{{pane.heading}}</a>\n" +
+    "      <a href="javascript:void(0);" ng-click=\"select(pane)\">{{pane.heading}}</a>\n" +
     "    </li>\n" +
     "  </ul>\n" +
     "  <div class=\"tab-content\" ng-transclude></div>\n" +
@@ -3448,9 +3448,9 @@ angular.module("template/timepicker/timepicker.html", []).run(["$templateCache",
   $templateCache.put("template/timepicker/timepicker.html",
     "<table class=\"form-inline\">\n" +
     "	<tr class=\"text-center\">\n" +
-    "		<td><a ng-click=\"incrementHours()\" class=\"btn btn-link\"><i class=\"icon-chevron-up\"></i></a></td>\n" +
+    "		<td><a href="javascript:void(0);" ng-click=\"incrementHours()\" class=\"btn btn-link\"><i class=\"icon-chevron-up\"></i></a></td>\n" +
     "		<td>&nbsp;</td>\n" +
-    "		<td><a ng-click=\"incrementMinutes()\" class=\"btn btn-link\"><i class=\"icon-chevron-up\"></i></a></td>\n" +
+    "		<td><a href="javascript:void(0);" ng-click=\"incrementMinutes()\" class=\"btn btn-link\"><i class=\"icon-chevron-up\"></i></a></td>\n" +
     "		<td ng-show=\"showMeridian\"></td>\n" +
     "	</tr>\n" +
     "	<tr>\n" +
@@ -3460,9 +3460,9 @@ angular.module("template/timepicker/timepicker.html", []).run(["$templateCache",
     "		<td ng-show=\"showMeridian\"><button ng-click=\"toggleMeridian()\" class=\"btn text-center\">{{meridian}}</button></td>\n" +
     "	</tr>\n" +
     "	<tr class=\"text-center\">\n" +
-    "		<td><a ng-click=\"decrementHours()\" class=\"btn btn-link\"><i class=\"icon-chevron-down\"></i></a></td>\n" +
+    "		<td><a href="javascript:void(0);" ng-click=\"decrementHours()\" class=\"btn btn-link\"><i class=\"icon-chevron-down\"></i></a></td>\n" +
     "		<td>&nbsp;</td>\n" +
-    "		<td><a ng-click=\"decrementMinutes()\" class=\"btn btn-link\"><i class=\"icon-chevron-down\"></i></a></td>\n" +
+    "		<td><a href="javascript:void(0);" ng-click=\"decrementMinutes()\" class=\"btn btn-link\"><i class=\"icon-chevron-down\"></i></a></td>\n" +
     "		<td ng-show=\"showMeridian\"></td>\n" +
     "	</tr>\n" +
     "</table>");
@@ -3470,7 +3470,7 @@ angular.module("template/timepicker/timepicker.html", []).run(["$templateCache",
 
 angular.module("template/typeahead/typeahead-match.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/typeahead/typeahead-match.html",
-    "<a tabindex=\"-1\" ng-bind-html-unsafe=\"match.label | typeaheadHighlight:query\"></a>");
+    "<a href="javascript:void(0);" tabindex=\"-1\" ng-bind-html-unsafe=\"match.label | typeaheadHighlight:query\"></a>");
 }]);
 
 angular.module("template/typeahead/typeahead-popup.html", []).run(["$templateCache", function($templateCache) {
@@ -3486,7 +3486,7 @@ angular.module("template/typeahead/typeahead.html", []).run(["$templateCache", f
   $templateCache.put("template/typeahead/typeahead.html",
     "<ul class=\"typeahead dropdown-menu\" ng-style=\"{display: isOpen()&&'block' || 'none', top: position.top+'px', left: position.left+'px'}\">\n" +
     "    <li ng-repeat=\"match in matches\" ng-class=\"{active: isActive($index) }\" ng-mouseenter=\"selectActive($index)\">\n" +
-    "        <a tabindex=\"-1\" ng-click=\"selectMatch($index)\" ng-bind-html-unsafe=\"match.label | typeaheadHighlight:query\"></a>\n" +
+    "        <a href="javascript:void(0);" tabindex=\"-1\" ng-click=\"selectMatch($index)\" ng-bind-html-unsafe=\"match.label | typeaheadHighlight:query\"></a>\n" +
     "    </li>\n" +
     "</ul>");
 }]);
