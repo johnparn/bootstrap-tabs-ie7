@@ -1,6 +1,6 @@
 'use strict';
 
-var App = angular.module('App', ['ui.bootstrap.tpls', 'ui.bootstrap.tabs']);
+var App = angular.module('App', ['ui.bootstrap.tabs']);
 
 App.controller('MainCtrl', function($scope, $routeParams) {
 
