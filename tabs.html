@@ -36,7 +36,7 @@
         <tabset class="tabset">
             <tab class="tab" ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
             	<div>Template:{{tab.template}}</div>
-                <ng-include src="{{tab.template}}"></ng-include>
+                <ng-include src="tab.template"></ng-include>
             </tab>
         </tabset>
     	
