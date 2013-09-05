@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="sv" class="ng-app:App" id="ng-app" ng-app="App" xmlns:ng="http://angularjs.org">
     <head>
         <meta charset="utf-8">
         <title>Tab test for IE7</title>
         <!-- Styles -->
         <link href="bootstrap.min.css" rel="stylesheet">
-        
         <!--[if lte IE 8]>
         <script>
             // Register tags to make IE7/8 happy
@@ -15,16 +14,63 @@
   
         </script>
         <![endif]-->
-        <style>
-        	.tab-pane {border: 1px solid #000; background-color: #ddd;}
-        	
-        </style>
+        <!--[if lt IE 8]>
+		<style type="text/css">
+			.nav {
+				margin-bottom: 5px;
+			}
+			.tab-content {
+				clear: both;
+			}
+			.tab {
+				border: 1px solid #eee;
+			}			
+			ul {
+				padding: 0;
+				margin: 0 0 10px 25px;
+			}
+			ul.nav-tabs {
+				border: 1px solid #000000;
+			}		
+			ul.nav > li {
+				margin-bottom: -1px;
+				float: left;
+				line-height: 20px;
+			}
+			ul.nav > .active > a, .nav > .active > a:hover, .nav > .active > a:focus {
+				color: #555;
+				cursor: default;
+				background-color: #FFF;
+				border: 1px solid #DDD;
+				border-bottom-color: #fff;
+			}
+			.nav > li > a {
+				padding-top: 8px;
+				padding-bottom: 8px;
+				line-height: 20px;
+				border: 1px solid rgba(0, 0, 0, 0);
+				-webkit-border-radius: 4px 4px 0 0;
+				-moz-border-radius: 4px 4px 0 0;
+				border-radius: 4px 4px 0 0;
+			}
+			.nav > li > a {
+				padding-right: 12px;
+				padding-left: 12px;
+				margin-right: 2px;
+				line-height: 14px;
+			}
+			ul.nav > li > a {
+				display: block;
+			}	
+			</style>
+			<![endif]-->
     </head>
     <body ng-controller="MainCtrl">
     
     	<h1>Tabset 1</h1>
-        <div tabset class="tabset">
-            <div class="tab" tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+    	<p>Using tabset or tabs as attributes will work in IE7</p>
+        <div tabset>
+            <div tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
             	<div>Template:{{tab.template}}</div>
                 <div ng-include="tab.template"></div>
             </div>
@@ -33,8 +79,9 @@
         <hr />
         
         <h1>Tabset 2</h1>
-        <tabset class="tabset">
-            <tab class="tab" ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+        <p>Using tabset or tabs as element will not work in IE7.</p>
+        <tabset>
+            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
             	<div>Template:{{tab.template}}</div>
                 <ng-include src="tab.template"></ng-include>
             </tab>
@@ -44,8 +91,10 @@
     	
     	<h2>Changes made</h2>
     	<ul>
+    		<li>Added <code>href="javascript:void(0)"</code> to all A elements in angular ui template file.</li>
     		<li>Changed <code>hasAttribute</code> to <code>getAttribute('attr')!=null</code></li>
     		<li>Specified tags using <code>document.createElement()</code></li>
+    		<li>Added new style just for IE7 as <code>.nav-tabs</code> can not be used as selector for some reason.</li>
     	</ul>
     	
     	<script src="js/ie-shiv.js"></script>
