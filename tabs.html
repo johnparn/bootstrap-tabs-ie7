@@ -17,11 +17,13 @@
     <body ng-controller="MainCtrl">
     	<h1>Tabset 1</h1>
         <div tabset>
-            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+            <div tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
             	<div>Template:{{tab.template}}</div>
                 <div ng-include="tab.template"></div>
-            </tab>
+            </div>
         </div>
+        
+        <hr />
         
         <h1>Tabset 2</h1>
         <tabset>
