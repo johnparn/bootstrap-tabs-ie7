@@ -4,20 +4,27 @@
         <meta charset="utf-8">
         <title>Tab test for IE7</title>
         <!-- Styles -->
+        <link href="bootstrap.min.css" rel="stylesheet">
+        
         <!--[if lte IE 8]>
         <script>
             // Register tags to make IE7/8 happy
             // Tabs - necessary?
             document.createElement('tabset');
-            document.createElement('tab');        
+            document.createElement('tab');
+  
         </script>
         <![endif]-->
-        <link href="bootstrap.min.css" rel="stylesheet">    
+        <style>
+        	.tab-pane, tab, .tab {border: 1px solid #000; background-color: #ddd;}
+        	
+        </style>
     </head>
     <body ng-controller="MainCtrl">
+    
     	<h1>Tabset 1</h1>
-        <div tabset>
-            <div tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+        <div tabset class="tabset">
+            <div class="tab" tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
             	<div>Template:{{tab.template}}</div>
                 <div ng-include="tab.template"></div>
             </div>
@@ -26,12 +33,20 @@
         <hr />
         
         <h1>Tabset 2</h1>
-        <tabset>
-            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+        <tabset class="tabset">
+            <tab class="tab" ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
             	<div>Template:{{tab.template}}</div>
-                <ng-include src="tab.template"></ng-include>
+                <ng-include src="{{tab.template}}"></ng-include>
             </tab>
         </tabset>
+    	
+    	<hr />
+    	
+    	<h2>Changes made</h2>
+    	<ul>
+    		<li>Changed <code>hasAttribute</code> to <code>getAttribute('attr')!=null</code></li>
+    		<li>Specified tags using <code>document.createElement()</code></li>
+    	</ul>
     	
     	<script src="js/ie-shiv.js"></script>
 	    <script src="js/angular-1.0.7.js"></script>
